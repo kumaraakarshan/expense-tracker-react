@@ -7,7 +7,7 @@ const Welcome = () => {
     const loginCtx = useContext(LoginContext);
     const verifyEmailHandler = async () => {
       const response = await fetch(
-        "https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyCSdkrWiOXFOVt4RJAPYlcoLBNb3Nv58sw",
+        "https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyDhd2ZRBrGww8WdRmaYJda8bVMMDEJP-DU",
         {
           method: "POST",
           body: JSON.stringify({
@@ -21,7 +21,6 @@ const Welcome = () => {
       );
       const data = await response.json();
       if (response.ok) {
-        alert('verification Link sent successfully')
         console.log(data.email);
       } else {
         alert(data.error.message);
