@@ -4,7 +4,7 @@ import LoginContext from "../Context/LoginContext";
 import classes from "./Header.module.css";
 
 const Header = () => {
-  const visibleLogout = localStorage.getItem("Email");
+
 
   const loginCtx = useContext(LoginContext);
   return (
@@ -15,8 +15,6 @@ const Header = () => {
       {!loginCtx.email && <Link to="/signUp">Sign Up</Link>}
       {!loginCtx.email && <Link to="/signIn">Sign In</Link>}
       {!!loginCtx.email && <Link to="/expenses">Expenses</Link>}
-
-
       {!!loginCtx.email && (
         <Link onClick={loginCtx.logout} to="/signIn">
           Logout

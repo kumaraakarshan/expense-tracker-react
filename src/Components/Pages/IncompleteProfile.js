@@ -2,6 +2,7 @@ import classes from "./IncompleteProfile.module.css";
 import React, { useContext, useEffect, useState } from "react";
 import { useRef } from "react";
 import LoginContext from "../Context/LoginContext";
+import Form from "../Layout/UI/Form";
 
 const IncompleteProfile = () => {
   const [displayNameValue, setDisplayNameValue] = useState("");
@@ -47,7 +48,7 @@ const IncompleteProfile = () => {
   useEffect(() => {
     const fillInputsHandler = async () => {
       const response = await fetch(
-        "https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=AIzaSyCSdkrWiOXFOVt4RJAPYlcoLBNb3Nv58sw",
+        "https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=AIzaSyDhd2ZRBrGww8WdRmaYJda8bVMMDEJP-DU",
         {
           method: "POST",
           body: JSON.stringify({
@@ -71,19 +72,17 @@ const IncompleteProfile = () => {
 
   return (
     <React.Fragment>
-    <h1>Profile Incomplete Page</h1>
-    <form
-      className={classes.IncompleteProfile}
-      onSubmit={updateDetailsHandler}
-    >
+    <Form onSubmit={updateDetailsHandler}>
       <h3>Contact Details</h3>
       <div>
+        <label>Update Your Profile Name</label>
         <input
           placeholder="Full Name"
           input="text"
           ref={fullNameRef}
           defaultValue={displayNameValue}
         />
+        <label>Update Your Photo</label>
         <input
           placeholder="Profile Photo URL"
           input="text"
@@ -92,9 +91,9 @@ const IncompleteProfile = () => {
         />
       </div>
       <button>Update Details</button>
-    </form>
+    </Form>
   </React.Fragment>
-  );
+);
 };
 
 export default IncompleteProfile;

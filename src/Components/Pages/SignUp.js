@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import classes from "./SignUp.module.css";
+import Form from "../Layout/UI/Form";
 
 const SignUp = () => {
   const emailRef = useRef("");
@@ -65,7 +66,7 @@ const SignUp = () => {
     }
   };
   return (
-    <form onSubmit={signUpSubmitHandler} className={classes.signUp}>
+    <Form onSubmit={signUpSubmitHandler} className={classes.signUp}>
       <div>
         <h3>Sign Up</h3>
       </div>
@@ -96,7 +97,7 @@ const SignUp = () => {
       <p>
         Already have an account? <Link to="/signIn">Log in</Link>
       </p>
-    </form>
+    </Form>
   );
 };
 export default SignUp;

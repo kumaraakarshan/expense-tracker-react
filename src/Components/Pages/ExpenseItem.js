@@ -1,14 +1,28 @@
-import { useState } from "react";
-import './Expense.module.css'
+import {useContext } from "react";
+import ExpenseContext from "../Context/ExpenseContext";
+
 const ExpenseItem = (props) => {
-  const expenseItem = props.expenseItem;
-  console.log(expenseItem);
+    const expenseCtx = useContext(ExpenseContext);
 
   return (
     <ul>
-      {expenseItem.map((expenseItem) => (
-        <li key={expenseItem.money + expenseItem.description}>
+     {expenseCtx.expenses.map((expenseItem) => (
+        <li key={expenseItem.id}>
           {expenseItem.money} {expenseItem.description} {expenseItem.category}
+          <button
+            onClick={props.editExpense.bind(
+              null,
+              expenseItem.id,
+              expenseItem.money,
+              expenseItem.description,
+              expenseItem.category
+            )}
+          >
+            Edit
+          </button>
+          <button onClick={expenseCtx.deleteExpense.bind(null, expenseItem.id)}>
+            Delete
+          </button>
         </li>
       ))}
     </ul>

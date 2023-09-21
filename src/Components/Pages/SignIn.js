@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { useRef } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory,Link  } from "react-router-dom";
 import LoginContext from "../Context/LoginContext";
 import classes from "./SignIn.module.css";
+import Form from "../Layout/UI/Form";
 
 const SignIn = () => {
   const emailRef = useRef("");
@@ -43,13 +44,13 @@ const SignIn = () => {
 
       loginCtx.login(data.email, data.idToken);
 
-      history.replace("/welcome");
+      history.replace("/expenses");
     } else {
       alert(data.error.message);
     }
   };
   return (
-    <form onSubmit={signInSubmitHandler} className={classes.signIn}>
+    <Form onSubmit={signInSubmitHandler} className={classes.signIn}>
     <div>
       <h3>Sign In</h3>
     </div>
@@ -67,14 +68,13 @@ const SignIn = () => {
         ref={pswdRef}
       />
     </div>
-      <button>Sign In</button>
-      <p>Forgot password <Link to="/forgotPassword">Reset Here </Link></p>
+    <button>Sign In</button>
+     <p>Forgot password <Link to="/forgotPassword">Reset Here </Link></p>
 
       <p>
        Don't have an account? <Link to="/signUp">Create here</Link>
       </p>
-
-  </form>
+  </Form>
 );
 };
 export default SignIn;
