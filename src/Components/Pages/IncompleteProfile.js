@@ -67,7 +67,7 @@ const IncompleteProfile = () => {
       }
     };
     fillInputsHandler();
-  });
+  }, []);
 
   return (
     <React.Fragment>

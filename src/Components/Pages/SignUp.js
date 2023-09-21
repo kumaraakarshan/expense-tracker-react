@@ -29,7 +29,7 @@ const SignUp = () => {
       setConfirmValid(false);
 
       const response = await fetch(
-        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=YOUR_API_KEY", // Replace with your API key
+        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCSdkrWiOXFOVt4RJAPYlcoLBNb3Nv58sw",
         {
           method: "POST",
           body: JSON.stringify({
@@ -56,7 +56,7 @@ const SignUp = () => {
       if (!emailValue.includes("@") || !emailValue.includes(".")) {
         setEmailValid(true);
       }
-      if (pswdValue.length < 6) { // Changed the password length check to 6
+      if (pswdValue.length < 5) {
         setPswdValid(true);
       }
       if (confirmPswdValue !== pswdValue) {
@@ -64,7 +64,6 @@ const SignUp = () => {
       }
     }
   };
-
   return (
     <form onSubmit={signUpSubmitHandler} className={classes.signUp}>
       <div>
@@ -100,5 +99,4 @@ const SignUp = () => {
     </form>
   );
 };
-
 export default SignUp;
