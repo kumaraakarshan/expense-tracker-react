@@ -69,6 +69,11 @@ const SignIn = () => {
     </div>
       <button>Sign In</button>
       <p>Forgot password <Link to="/forgotPassword">Reset Here </Link></p>
+
+      <p>
+       Don't have an account? <Link to="/signUp">Create here</Link>
+      </p>
+
   </form>
 );
 };
