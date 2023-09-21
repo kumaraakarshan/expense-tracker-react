@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useRef } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import LoginContext from "../Context/LoginContext";
 import classes from "./SignIn.module.css";
 
@@ -67,7 +67,8 @@ const SignIn = () => {
         ref={pswdRef}
       />
     </div>
-    <button>Sign In</button>
+      <button>Sign In</button>
+      <p>Forgot password <Link to="/forgotPassword">Reset Here </Link></p>
   </form>
 );
 };

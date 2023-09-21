@@ -9,6 +9,7 @@ import IncompleteProfile from "./Components/Pages/IncompleteProfile";
 import SignUp from "./Components/Pages/SignUp";
 import SignIn from "./Components/Pages/SignIn";
 import Header from "./Components/Layout/Header";
+import ForgotPassword from "./Components/Pages/ForgotPassword";
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
 
         <Route path="/signIn">
           <SignIn />
+        </Route>
+        <Route path="/forgotPassword">
+          <ForgotPassword />
         </Route>
 
         <Route path="/welcome">
