@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { LoginContextProvider } from "./Components/Context/LoginContext";
 import Welcome from "./Components/Pages/Welcome";
+import IncompleteProfile from "./Components/Pages/IncompleteProfile";
 
 import "./App.css";
 
@@ -12,9 +13,9 @@ function App() {
   return (
     <React.Fragment>
       <LoginContextProvider>
-        {/* <Route path="*">
+        <Route path="*">
           <Redirect to="/signUp" />
-        </Route> */}
+        </Route>
 
         <Route path="/signUp">
           <SignUp />
@@ -26,6 +27,10 @@ function App() {
 
         <Route path="/welcome">
           <Welcome />
+        </Route>
+        
+        <Route path="/incompleteProfile">
+          <IncompleteProfile />
         </Route>
       </LoginContextProvider>
     </React.Fragment>

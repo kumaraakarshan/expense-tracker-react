@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import classes from "./SignUp.module.css";
 
 const SignUp = () => {
@@ -29,7 +29,7 @@ const SignUp = () => {
       setConfirmValid(false);
 
       const response = await fetch(
-        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDhd2ZRBrGww8WdRmaYJda8bVMMDEJP-DU",
+        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=YOUR_API_KEY", // Replace with your API key
         {
           method: "POST",
           body: JSON.stringify({
@@ -56,7 +56,7 @@ const SignUp = () => {
       if (!emailValue.includes("@") || !emailValue.includes(".")) {
         setEmailValid(true);
       }
-      if (pswdValue.length < 5) {
+      if (pswdValue.length < 6) { // Changed the password length check to 6
         setPswdValid(true);
       }
       if (confirmPswdValue !== pswdValue) {
@@ -64,6 +64,7 @@ const SignUp = () => {
       }
     }
   };
+
   return (
     <form onSubmit={signUpSubmitHandler} className={classes.signUp}>
       <div>
@@ -93,7 +94,11 @@ const SignUp = () => {
         {confirmValid && <p>Please Match the Password</p>}
       </div>
       <button>Sign Up</button>
+      <p>
+        Already have an account? <Link to="/signIn">Log in</Link>
+      </p>
     </form>
   );
 };
+
 export default SignUp;
