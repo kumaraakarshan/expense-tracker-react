@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 const ExpenseContext = React.createContext({
   expenses: null,
   addExpense: () => {},
@@ -10,34 +9,7 @@ const ExpenseContext = React.createContext({
 
 export const ExpenseContextProvider = (props) => {
   const [expenses, setExpenses] = useState([]);
-
-  const addExpenseHandler = (expenses) => {
-    const addExpenseItem = async (expenses) => {
-      try {
-        const response = await fetch(
-          "https://expense-tracker-b4081-default-rtdb.firebaseio.com/expenses.json",
-          {
-            method: "POST",
-            body: JSON.stringify({
-              money: expenses.money,
-              description: expenses.description,
-              category: expenses.category,
-            }),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        const data = await response.json();
-
-        getExpenseHandler();
-      } catch (error) {
-        alert(error.message);
-      }
-    };
-    addExpenseItem(expenses);
-  };
-
+  const addExpenseHandler = () => {};
   const getExpenseHandler = () => {
     const getExpenseItem = async () => {
       try {
@@ -119,7 +91,6 @@ export const ExpenseContextProvider = (props) => {
     editExpenseItem(expenseItem);
   };
 
-
   const expenseContext = {
     expenses: expenses,
     addExpense: addExpenseHandler,
@@ -133,5 +104,4 @@ export const ExpenseContextProvider = (props) => {
     </ExpenseContext.Provider>
   );
 };
-
 export default ExpenseContext;

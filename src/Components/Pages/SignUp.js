@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import classes from "./SignUp.module.css";
 import Form from "../Layout/UI/Form";
 
