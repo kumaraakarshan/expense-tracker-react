@@ -4,13 +4,13 @@ import ExpenseItem from "./ExpenseItem";
 import "./Expenses.css";
 
 import EditForm from "./EditForm";
-import { useDispatch } from "react-redux";
-import { ExpenseActions } from "../store/ExpenseReducer";
+import { useSelector } from "react-redux";
+import './Expenses.css';
 
 const Expenses = (props) => {
   const [editFormState, setEditFormState] = useState(false);
   const [editExpense, setEditExpense] = useState("");
-  const dispatch = useDispatch();
+  const theme = useSelector((state) => state.theme.theme);
   const moneyRef = useRef("");
   const descRef = useRef("");
   const categoryRef = useRef("");
@@ -69,10 +69,11 @@ const Expenses = (props) => {
   };
   useEffect(() => {
     props.getExpenseFetching();
+
   }, []);
 
   return (
-    <React.Fragment>
+    <div className={`${theme}`}>
       <h2>Expenses Page...</h2>
       <Form onSubmit={addExpenseHandler}>
       <h2>Add Expense</h2>
@@ -106,7 +107,7 @@ const Expenses = (props) => {
          getExpenseFetching={props.getExpenseFetching}
        />
       )}
-    </React.Fragment>
+    </div>
   );
 };
 
